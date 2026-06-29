@@ -12,11 +12,13 @@ import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
 import jakarta.persistence.ManyToOne;
 import jakarta.persistence.Table;
+import lombok.Builder;
 
 import java.time.LocalDateTime;
 
 @Entity
 @Table(name = "encomenda")
+@Builder
 public class Package {
 
     @Id
@@ -52,4 +54,79 @@ public class Package {
     @Column(name = "empresa")
     private String company;
 
+    public Package() {
+
+    }
+
+    public String getCompany() {
+        return company;
+    }
+
+    public void setCompany(String company) {
+        this.company = company;
+    }
+
+    public LocalDateTime getDeliveryTime() {
+        return deliveryTime;
+    }
+
+    public void setDeliveryTime(LocalDateTime deliveryTime) {
+        this.deliveryTime = deliveryTime;
+    }
+
+    public Resident getDestinationResident() {
+        return destinationResident;
+    }
+
+    public void setDestinationResident(Resident destinationResident) {
+        this.destinationResident = destinationResident;
+    }
+
+    public Doorman getDoorman() {
+        return doorman;
+    }
+
+    public void setDoorman(Doorman doorman) {
+        this.doorman = doorman;
+    }
+
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
+    }
+
+    public PackageSize getPackageSize() {
+        return packageSize;
+    }
+
+    public void setPackageSize(PackageSize packageSize) {
+        this.packageSize = packageSize;
+    }
+
+    public AuthorizedReceiver getPickupAuthorizedReceiver() {
+        return pickupAuthorizedReceiver;
+    }
+
+    public void setPickupAuthorizedReceiver(AuthorizedReceiver pickupAuthorizedReceiver) {
+        this.pickupAuthorizedReceiver = pickupAuthorizedReceiver;
+    }
+
+    public Resident getPickupResident() {
+        return pickupResident;
+    }
+
+    public void setPickupResident(Resident pickupResident) {
+        this.pickupResident = pickupResident;
+    }
+
+    public LocalDateTime getReceiveTime() {
+        return receiveTime;
+    }
+
+    public void setReceiveTime(LocalDateTime receiveTime) {
+        this.receiveTime = receiveTime;
+    }
 }
