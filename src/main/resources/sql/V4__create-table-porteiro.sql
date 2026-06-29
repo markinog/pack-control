@@ -1,0 +1,6 @@
+CREATE TABLE porteiro (
+    id BIGINT AUTO_INCREMENT PRIMARY KEY,
+    nome VARCHAR(255),
+    cpf VARCHAR(255) UNIQUE NOT NULL,
+    turno VARCHAR(255)
+)

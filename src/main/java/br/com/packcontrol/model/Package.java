@@ -36,8 +36,8 @@ public class Package {
     private Resident pickupResident;
 
     @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "id_terceiro_retirada")
-    private AuthorizedReceiver pickupThirdParty;
+    @JoinColumn(name = "id_recebedor_autorizado")
+    private AuthorizedReceiver pickupAuthorizedReceiver;
 
     @Column(name = "horario_entrega", columnDefinition = "DATETIME(6)", nullable = false, updatable = false)
     private LocalDateTime deliveryTime;

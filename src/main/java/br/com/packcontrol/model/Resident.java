@@ -35,6 +35,6 @@ public class Resident {
     @Column(name = "apartamento", length = 100)
     private String apartament;
 
-    @OneToMany(mappedBy = "morador", cascade = CascadeType.ALL)
+    @OneToMany(mappedBy = "resident", cascade = CascadeType.ALL)
     private List<AuthorizedReceiver> authorizedReceivers = new ArrayList<>();
 }
