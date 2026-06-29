@@ -9,11 +9,15 @@ import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.Table;
+import lombok.AllArgsConstructor;
 import lombok.Builder;
+import lombok.NoArgsConstructor;
 
 @Entity
 @Table(name = "porteiro")
 @Builder
+@NoArgsConstructor
+@AllArgsConstructor
 public class Doorman {
 
     @Id
@@ -27,10 +31,6 @@ public class Doorman {
 
     @Column(name = "turno")
     private DoormanShift shift;
-
-    public Doorman() {
-
-    }
 
     public String getCpf() {
         return cpf;

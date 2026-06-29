@@ -8,7 +8,9 @@ import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.OneToMany;
 import jakarta.persistence.Table;
+import lombok.AllArgsConstructor;
 import lombok.Builder;
+import lombok.NoArgsConstructor;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -17,6 +19,8 @@ import java.util.List;
 @Entity
 @Table(name = "morador")
 @Builder
+@NoArgsConstructor
+@AllArgsConstructor
 public class Resident {
 
     @Id
@@ -36,21 +40,17 @@ public class Resident {
     private String email;
 
     @Column(name = "apartamento", length = 100)
-    private String apartament;
+    private String apartment;
 
     @OneToMany(mappedBy = "resident", cascade = CascadeType.ALL)
     private List<AuthorizedReceiver> authorizedReceivers = new ArrayList<>();
 
-    public Resident() {
-
+    public String getApartment() {
+        return apartment;
     }
 
-    public String getApartament() {
-        return apartament;
-    }
-
-    public void setApartament(String apartament) {
-        this.apartament = apartament;
+    public void setApartment(String apartament) {
+        this.apartment = apartament;
     }
 
     public List<AuthorizedReceiver> getAuthorizedReceivers() {
