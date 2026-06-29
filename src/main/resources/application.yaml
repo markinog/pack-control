@@ -1,0 +1,14 @@
+spring:
+  datasource:
+    url: ${MYSQL_URL}
+    username: ${MYSQL_USER}
+    password: ${MYSQL_PASSWORD}
+    driver-class-name: com.mysql.cj.jdbc.Driver
+  data:
+    mongodb:
+      uri: ${MONGODB_URI}
+      username: ${MONGODB_USER}
+      password: ${MONGODB_PASSWORD}
+
+server:
+  port: 8080
