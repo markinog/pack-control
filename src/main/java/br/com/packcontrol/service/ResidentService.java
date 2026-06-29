@@ -16,8 +16,8 @@ public class ResidentService {
         this.repository = repository;
     }
 
-    public ResidentResponseDTO create(ResidentRequestDTO dto){
+    public Long create(ResidentRequestDTO dto){
         Resident resident =  this.repository.save(ResidentMapper.toEntity(dto));
-        return ResidentMapper.toResponse(resident);
+        return resident.getId();
     }
 }

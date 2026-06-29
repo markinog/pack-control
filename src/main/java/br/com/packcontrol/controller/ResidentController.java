@@ -23,8 +23,8 @@ public class ResidentController {
     }
 
     @PostMapping
-    public ResponseEntity<ResidentResponseDTO> create(@RequestBody @Valid ResidentRequestDTO request){
-        ResidentResponseDTO response = residentService.create(request);
-        return ResponseEntity.created(URI.create("/morador/" + response.id())).body(response);
+    public ResponseEntity<Long> create(@RequestBody @Valid ResidentRequestDTO request){
+        Long response = residentService.create(request);
+        return ResponseEntity.created(URI.create("/morador/" + response)).body(response);
     }
 }
