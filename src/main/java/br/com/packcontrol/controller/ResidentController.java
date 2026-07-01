@@ -1,7 +1,6 @@
 package br.com.packcontrol.controller;
 
 import br.com.packcontrol.controller.dto.request.ResidentRequestDTO;
-import br.com.packcontrol.controller.dto.response.ResidentResponseDTO;
 import br.com.packcontrol.service.ResidentService;
 import jakarta.validation.Valid;
 import org.springframework.http.ResponseEntity;
@@ -25,6 +24,6 @@ public class ResidentController {
     @PostMapping
     public ResponseEntity<Long> create(@RequestBody @Valid ResidentRequestDTO request){
         Long response = residentService.create(request);
-        return ResponseEntity.created(URI.create("/morador/" + response)).body(response);
+        return ResponseEntity.status(201).body(response);
     }
 }

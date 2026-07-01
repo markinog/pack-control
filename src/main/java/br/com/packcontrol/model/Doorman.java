@@ -5,6 +5,8 @@ import br.com.packcontrol.model.enums.DoormanShift;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 
+import jakarta.persistence.EnumType;
+import jakarta.persistence.Enumerated;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
@@ -30,6 +32,7 @@ public class Doorman {
     private String cpf;
 
     @Column(name = "turno")
+    @Enumerated(value = EnumType.STRING)
     private DoormanShift shift;
 
     public String getCpf() {

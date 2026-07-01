@@ -1,7 +1,6 @@
 package br.com.packcontrol.service;
 
 import br.com.packcontrol.controller.dto.request.ResidentRequestDTO;
-import br.com.packcontrol.controller.dto.response.ResidentResponseDTO;
 import br.com.packcontrol.mapper.ResidentMapper;
 import br.com.packcontrol.model.Resident;
 import br.com.packcontrol.repository.ResidentRepository;
