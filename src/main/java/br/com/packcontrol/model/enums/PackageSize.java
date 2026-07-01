@@ -1,8 +1,8 @@
 package br.com.packcontrol.model.enums;
 
 public enum PackageSize {
-    GRANDE,
-    PEQUENA,
-    MEDIA,
-    MUITO_PEQUENA
+    ENCOMENDA_GRANDE,
+    ENCOMENDA_PEQUENA,
+    ENCOMENDA_MEDIA,
+    ENCOMENDA_MUITO_PEQUENA
 }
