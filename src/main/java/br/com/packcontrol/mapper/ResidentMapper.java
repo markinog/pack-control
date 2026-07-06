@@ -1,6 +1,7 @@
 package br.com.packcontrol.mapper;
 
 import br.com.packcontrol.controller.dto.request.ResidentRequestDTO;
+import br.com.packcontrol.controller.dto.request.ResidentUpdateDTO;
 import br.com.packcontrol.controller.dto.response.ResidentResponseDTO;
 import br.com.packcontrol.model.Resident;
 import org.springframework.stereotype.Component;
@@ -35,5 +36,22 @@ public class ResidentMapper {
                 resident.getEmail(),
                 resident.getApartment()
         );
+    }
+
+    public static Resident updateEntityFromUpdateDto(ResidentUpdateDTO dto, Resident resident){
+        if (dto.name() != null && !dto.name().isBlank()) {
+            resident.setName(dto.name());
+        }
+        if (dto.phone() != null) {
+            resident.setPhone(dto.phone());
+        }
+        if (dto.email() != null && !dto.email().isBlank()) {
+            resident.setEmail(dto.email());
+        }
+        if (dto.apartment() != null ) {
+            resident.setApartment(dto.apartment());
+        }
+
+        return resident;
     }
 }
