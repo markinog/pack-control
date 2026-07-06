@@ -8,6 +8,7 @@ import jakarta.validation.Valid;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PatchMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
@@ -41,16 +42,16 @@ public class ResidentController {
     @GetMapping("/{id}")
     public ResponseEntity<ResidentResponseDTO> findResidentById(@PathVariable("id") Long id){
         ResidentResponseDTO response = residentService.findResidentById(id);
-        return ResponseEntity.status(HttpStatus.FOUND).body(response);
+        return ResponseEntity.ok().body(response);
     }
 
     @GetMapping("/cpf/{cpf}")
     public ResponseEntity<ResidentResponseDTO> findResidentByCpf(@PathVariable("cpf") String cpf){
         ResidentResponseDTO response = residentService.findResidentByCpf(cpf);
-        return ResponseEntity.status(HttpStatus.FOUND).body(response);
+        return ResponseEntity.ok().body(response);
     }
 
-    @PutMapping("/update/{id}")
+    @PatchMapping("/update/{id}")
     public ResponseEntity<ResidentResponseDTO> updateResident(@PathVariable("id") Long id,
                                                  @Valid @RequestBody ResidentUpdateDTO request){
         ResidentResponseDTO response = residentService.updateResident(id, request);
