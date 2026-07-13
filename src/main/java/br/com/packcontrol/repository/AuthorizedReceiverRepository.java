@@ -8,12 +8,16 @@ import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;
 import org.springframework.stereotype.Repository;
 
+import java.util.Optional;
+
 @Repository
 public interface AuthorizedReceiverRepository extends JpaRepository<AuthorizedReceiver, Long> {
 
     @Modifying
     @Transactional
-    @Query("UPDATE AuthorizedReceiver a SET a.authorized = :authorized WHERE a.id = :id")
-    int updateAuthorizedStatus(@Param("id") Long id, @Param("authorized") boolean authorized);
+    @Query("UPDATE AuthorizedReceiver a SET a.authorized = :authorized WHERE a.cpf = :cpf")
+    int updateAuthorizedStatus(@Param("cpf") String cpf, @Param("authorized") boolean authorized);
+
+    Optional<AuthorizedReceiver> findByCpf(String cpf);
 
 }

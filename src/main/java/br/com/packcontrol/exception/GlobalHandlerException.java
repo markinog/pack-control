@@ -42,4 +42,10 @@ public class GlobalHandlerException {
         return ResponseEntity.status(HttpStatus.NOT_FOUND)
                 .body("Rota não encontrada: " + e.getMessage());
     }
+
+    @ExceptionHandler(AuthorizedReceiverNotFoundException.class)
+    public ResponseEntity<String> handleAuthorizedReceiverNotFound(AuthorizedReceiverNotFoundException e){
+        return ResponseEntity.status(HttpStatus.NOT_FOUND)
+                .body("Recebedor autorizado não encontrado: " + e.getMessage());
+    }
 }
