@@ -5,7 +5,6 @@ import br.com.packcontrol.controller.dto.request.ReceiverAuthorizationRequestDTO
 import br.com.packcontrol.controller.dto.response.AuthorizedReceiverResponseDTO;
 import br.com.packcontrol.service.AuthorizedReceiverService;
 import jakarta.validation.Valid;
-import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PatchMapping;
@@ -38,7 +37,7 @@ public class AuthorizedReceiverController {
     }
 
     @PatchMapping("/autorizar-recebedor")
-    public ResponseEntity<String> authorizeReceiver(@RequestBody ReceiverAuthorizationRequestDTO request){
+    public ResponseEntity<String> authorizeReceiver(@Valid @RequestBody ReceiverAuthorizationRequestDTO request){
         String result = authorizedReceiverService.updateAuthorization(request);
         return ResponseEntity.ok().body(result);
     }
