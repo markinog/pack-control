@@ -5,7 +5,7 @@ import br.com.packcontrol.controller.dto.request.ReceiverAuthorizationRequestDTO
 import br.com.packcontrol.controller.dto.response.AuthorizedReceiverResponseDTO;
 import br.com.packcontrol.controller.dto.response.ResidentResponseDTO;
 import br.com.packcontrol.model.AuthorizedReceiver;
-import br.com.packcontrol.controller.AuthorizedReceiverController
+import br.com.packcontrol.controller.AuthorizedReceiverController;
 import br.com.packcontrol.model.Resident;
 import org.springframework.stereotype.Component;
 
