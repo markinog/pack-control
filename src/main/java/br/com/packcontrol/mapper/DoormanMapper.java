@@ -1,6 +1,7 @@
 package br.com.packcontrol.mapper;
 
 import br.com.packcontrol.controller.dto.request.DoormanRequestDTO;
+import br.com.packcontrol.controller.dto.request.DoormanUpdateDTO;
 import br.com.packcontrol.controller.dto.response.DoormanResponseDTO;
 import br.com.packcontrol.model.Doorman;
 import br.com.packcontrol.model.enums.DoormanShift;
@@ -30,5 +31,18 @@ public class DoormanMapper {
                 doorman.getName(),
                 doorman.getShift()
         );
+    }
+
+    public static Doorman updateEntityFromDto(DoormanUpdateDTO dto, Doorman doorman){
+
+        if(dto.name() != null &&  !dto.name().isBlank()){
+            doorman.setName(dto.name());
+        }
+
+        if(dto.shift() != null &&  !dto.shift().isBlank()){
+            doorman.setShift(DoormanShift.fromValue(dto.shift()));
+        }
+
+        return doorman;
     }
 }

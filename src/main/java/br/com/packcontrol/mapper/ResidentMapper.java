@@ -31,7 +31,6 @@ public class ResidentMapper {
         return new ResidentResponseDTO(
                 resident.getId(),
                 resident.getName(),
-                resident.getCpf(),
                 resident.getPhone(),
                 resident.getEmail(),
                 resident.getApartment()

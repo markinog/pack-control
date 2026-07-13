@@ -55,6 +55,6 @@ public class ResidentController {
     public ResponseEntity<ResidentResponseDTO> updateResident(@PathVariable("id") Long id,
                                                  @Valid @RequestBody ResidentUpdateDTO request){
         ResidentResponseDTO response = residentService.updateResident(id, request);
-        return ResponseEntity.status(200).body(response);
+        return ResponseEntity.ok().body(response);
     }
 }

@@ -2,6 +2,7 @@ package br.com.packcontrol.service;
 
 import br.com.packcontrol.controller.dto.request.PackageRequestDTO;
 import br.com.packcontrol.controller.dto.response.PackageResponseDTO;
+import br.com.packcontrol.exception.ResidentNotFoundException;
 import br.com.packcontrol.mapper.PackageMapper;
 import br.com.packcontrol.model.Doorman;
 import br.com.packcontrol.model.Package;
@@ -30,7 +31,7 @@ public class PackageService {
                 .orElseThrow(() -> new EntityNotFoundException("Porteiro não encontrado"));
 
         Resident destinationResident = residentRepository.findByCpf(request.residentCpf())
-                .orElseThrow(() -> new EntityNotFoundException("Morador não encontrado"));
+                .orElseThrow(() -> new ResidentNotFoundException("Morador não encontrado"));
 
         Package pkg = PackageMapper.toEntity(doorman, destinationResident, request);
         return PackageMapper.toResponse(packageRepository.save(pkg));

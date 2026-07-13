@@ -38,7 +38,7 @@ public class ResidentService {
 
     public ResidentResponseDTO findResidentById(Long id){
        Resident resident = repository.findById(id)
-               .orElseThrow(() -> new ResidentNotFoundException("Morador com ID  "+ id+ " não encontrado"));
+               .orElseThrow(() -> new ResidentNotFoundException("Morador com ID "+ id+ " não encontrado"));
         return toResponse(resident);
     }
 

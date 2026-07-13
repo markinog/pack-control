@@ -1,17 +1,20 @@
 package br.com.packcontrol.service;
 
 import br.com.packcontrol.controller.dto.request.DoormanRequestDTO;
+import br.com.packcontrol.controller.dto.request.DoormanUpdateDTO;
 import br.com.packcontrol.controller.dto.response.DoormanResponseDTO;
 import br.com.packcontrol.exception.DoormanNotFoundException;
 import br.com.packcontrol.mapper.DoormanMapper;
 import br.com.packcontrol.model.Doorman;
 import br.com.packcontrol.model.enums.DoormanShift;
 import br.com.packcontrol.repository.DoormanRepository;
+import jakarta.transaction.Transactional;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
 
 import static br.com.packcontrol.mapper.DoormanMapper.toResponse;
+import static br.com.packcontrol.mapper.DoormanMapper.updateEntityFromDto;
 
 @Service
 public class DoormanService {
@@ -55,5 +58,14 @@ public class DoormanService {
         return doormans.stream()
                 .map(DoormanMapper::toResponse)
                 .toList();
+    }
+
+    @Transactional
+    public DoormanResponseDTO updateDoorman(Long id, DoormanUpdateDTO dto){
+        Doorman doorman = repository.findById(id)
+                .orElseThrow(() -> new DoormanNotFoundException("Porteiro não encontrado para o ID " + id));
+
+        updateEntityFromDto(dto, doorman);
+        return toResponse(doorman);
     }
 }
