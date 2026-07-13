@@ -1,4 +1,4 @@
-package br.com.packcontrol.controller.dto.request;
+package br.com.packcontrol.controller.dto.request.doorman;
 
 import br.com.packcontrol.model.enums.DoormanShift;
 import jakarta.validation.constraints.NotBlank;

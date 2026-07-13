@@ -1,6 +1,6 @@
 package br.com.packcontrol.mapper;
 
-import br.com.packcontrol.controller.dto.request.PackageRequestDTO;
+import br.com.packcontrol.controller.dto.request.packages.PackageRequestDTO;
 import br.com.packcontrol.controller.dto.response.PackageResponseDTO;
 import br.com.packcontrol.controller.dto.response.PackageResponseDTO.AuthorizedReceiverSummary;
 import br.com.packcontrol.controller.dto.response.PackageResponseDTO.DoormanSummary;

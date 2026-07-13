@@ -1,4 +1,4 @@
-package br.com.packcontrol.controller.dto.request;
+package br.com.packcontrol.controller.dto.request.authorizedReceiver;
 
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.Pattern;

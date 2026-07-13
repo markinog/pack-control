@@ -1,6 +1,6 @@
 package br.com.packcontrol.service;
 
-import br.com.packcontrol.controller.dto.request.PackageRequestDTO;
+import br.com.packcontrol.controller.dto.request.packages.PackageRequestDTO;
 import br.com.packcontrol.controller.dto.response.PackageResponseDTO;
 import br.com.packcontrol.exception.ResidentNotFoundException;
 import br.com.packcontrol.mapper.PackageMapper;

@@ -1,7 +1,7 @@
 package br.com.packcontrol.controller;
 
-import br.com.packcontrol.controller.dto.request.AuthorizedReceiverRequestDTO;
-import br.com.packcontrol.controller.dto.request.ReceiverAuthorizationRequestDTO;
+import br.com.packcontrol.controller.dto.request.authorizedReceiver.AuthorizedReceiverRequestDTO;
+import br.com.packcontrol.controller.dto.request.authorizedReceiver.ReceiverAuthorizationRequestDTO;
 import br.com.packcontrol.controller.dto.response.AuthorizedReceiverResponseDTO;
 import br.com.packcontrol.service.AuthorizedReceiverService;
 import jakarta.validation.Valid;

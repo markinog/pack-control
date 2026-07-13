@@ -1,4 +1,4 @@
-package br.com.packcontrol.controller.dto.request;
+package br.com.packcontrol.controller.dto.request.resident;
 
 import jakarta.validation.constraints.Email;
 import jakarta.validation.constraints.NotBlank;

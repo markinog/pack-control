@@ -1,7 +1,7 @@
 package br.com.packcontrol.service;
 
-import br.com.packcontrol.controller.dto.request.DoormanRequestDTO;
-import br.com.packcontrol.controller.dto.request.DoormanUpdateDTO;
+import br.com.packcontrol.controller.dto.request.doorman.DoormanRequestDTO;
+import br.com.packcontrol.controller.dto.request.doorman.DoormanUpdateDTO;
 import br.com.packcontrol.controller.dto.response.DoormanResponseDTO;
 import br.com.packcontrol.exception.DoormanNotFoundException;
 import br.com.packcontrol.mapper.DoormanMapper;

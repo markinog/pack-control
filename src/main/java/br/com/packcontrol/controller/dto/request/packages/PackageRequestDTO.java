@@ -1,4 +1,4 @@
-package br.com.packcontrol.controller.dto.request;
+package br.com.packcontrol.controller.dto.request.packages;
 
 import br.com.packcontrol.model.enums.PackageSize;
 import jakarta.validation.constraints.NotBlank;
