@@ -49,12 +49,11 @@ public class ResidentService {
     }
 
     @Transactional
-    public ResidentResponseDTO updateResident(Long id, ResidentUpdateDTO dto){
-        Resident resident = repository.findById(id)
-                .orElseThrow(() -> new ResidentNotFoundException("Morador com ID  "+ id+ " não encontrado"));
+    public ResidentResponseDTO updateResident(String  cpf, ResidentUpdateDTO dto){
+        Resident resident = repository.findByCpf(cpf)
+                .orElseThrow(() -> new ResidentNotFoundException("Morador com CPF  "+ cpf+ " não encontrado"));
 
          updateEntityFromUpdateDto(dto, resident);
-
          return toResponse(resident);
     }
 }

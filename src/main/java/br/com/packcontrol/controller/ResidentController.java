@@ -51,10 +51,10 @@ public class ResidentController {
         return ResponseEntity.ok().body(response);
     }
 
-    @PatchMapping("/update/{id}")
-    public ResponseEntity<ResidentResponseDTO> updateResident(@PathVariable("id") Long id,
+    @PatchMapping("/update/{cpf}")
+    public ResponseEntity<ResidentResponseDTO> updateResident(@PathVariable("cpf") String cpf,
                                                  @Valid @RequestBody ResidentUpdateDTO request){
-        ResidentResponseDTO response = residentService.updateResident(id, request);
+        ResidentResponseDTO response = residentService.updateResident(cpf, request);
         return ResponseEntity.ok().body(response);
     }
 }

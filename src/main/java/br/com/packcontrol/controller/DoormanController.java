@@ -57,9 +57,9 @@ public class DoormanController {
         return ResponseEntity.ok().body(response);
     }
 
-    @PatchMapping("/update/{id}")
-    public ResponseEntity<DoormanResponseDTO> updateDoorman(@PathVariable("id") Long id, @RequestBody DoormanUpdateDTO dto){
-        DoormanResponseDTO response = doormanService.updateDoorman(id, dto);
+    @PatchMapping("/update/{cpf}")
+    public ResponseEntity<DoormanResponseDTO> updateDoorman(@PathVariable("cpf") String cpf, @RequestBody DoormanUpdateDTO dto){
+        DoormanResponseDTO response = doormanService.updateDoorman(cpf, dto);
         return ResponseEntity.ok().body(response);
     }
 }

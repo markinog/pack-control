@@ -61,9 +61,9 @@ public class DoormanService {
     }
 
     @Transactional
-    public DoormanResponseDTO updateDoorman(Long id, DoormanUpdateDTO dto){
-        Doorman doorman = repository.findById(id)
-                .orElseThrow(() -> new DoormanNotFoundException("Porteiro não encontrado para o ID " + id));
+    public DoormanResponseDTO updateDoorman(String cpf, DoormanUpdateDTO dto){
+        Doorman doorman = repository.findByCpf(cpf)
+                .orElseThrow(() -> new DoormanNotFoundException("Porteiro não encontrado para o ID " + cpf));
 
         updateEntityFromDto(dto, doorman);
         return toResponse(doorman);
