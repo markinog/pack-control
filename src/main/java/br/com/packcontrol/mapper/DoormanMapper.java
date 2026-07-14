@@ -29,6 +29,7 @@ public class DoormanMapper {
         return new DoormanResponseDTO(
                 doorman.getId(),
                 doorman.getName(),
+                doorman.getCpf(),
                 doorman.getShift()
         );
     }

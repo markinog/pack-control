@@ -5,6 +5,7 @@ import br.com.packcontrol.model.enums.DoormanShift;
 public record DoormanResponseDTO(
         Long id,
         String name,
+        String cpf,
         DoormanShift shift
 ) {
 }

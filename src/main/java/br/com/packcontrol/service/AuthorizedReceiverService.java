@@ -3,7 +3,6 @@ package br.com.packcontrol.service;
 import br.com.packcontrol.controller.dto.request.authorizedReceiver.AuthorizedReceiverRequestDTO;
 import br.com.packcontrol.controller.dto.request.authorizedReceiver.ReceiverAuthorizationRequestDTO;
 import br.com.packcontrol.controller.dto.response.authorizedReceiver.AuthorizedReceiverResponseDTO;
-import br.com.packcontrol.controller.dto.response.authorizedReceiver.ReceiversByResidentResponseDTO;
 import br.com.packcontrol.controller.dto.response.resident.ResidentReceiversResponseDTO;
 import br.com.packcontrol.controller.dto.response.resident.ResidentResponseDTO;
 import br.com.packcontrol.exception.AuthorizedReceiverNotFoundException;

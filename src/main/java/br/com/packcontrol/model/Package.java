@@ -1,6 +1,7 @@
 package br.com.packcontrol.model;
 
 import br.com.packcontrol.model.enums.PackageSize;
+import br.com.packcontrol.model.enums.PickedBy;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.EnumType;
@@ -37,13 +38,20 @@ public class Package {
     @JoinColumn(name = "id_morador_destinatario", nullable = false)
     private Resident destinationResident;
 
+
+    //TODO avaliar trocar id_morador para algo mais genérico como recebedor_cpf
+    //e implementar lógica que exiba o pickedBy e o CPF
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "id_morador_retirada")
     private Resident pickupResident;
 
     @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "id_recebedor_autorizado")
+    @JoinColumn(name = "id_terceiro_retirada")
     private AuthorizedReceiver pickupAuthorizedReceiver;
+
+    @Column(name = "retirado_por", nullable = false)
+    @Enumerated(value = EnumType.STRING)
+    private PickedBy pickedBy;
 
     @Column(name = "horario_entrega", columnDefinition = "DATETIME(6)", nullable = false, updatable = false)
     private LocalDateTime deliveryTime;

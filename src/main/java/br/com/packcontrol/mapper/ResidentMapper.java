@@ -30,6 +30,7 @@ public class ResidentMapper {
 
         return new ResidentResponseDTO(
                 resident.getId(),
+                resident.getCpf(),
                 resident.getName(),
                 resident.getPhone(),
                 resident.getEmail(),
