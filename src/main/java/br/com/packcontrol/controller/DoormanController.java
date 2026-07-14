@@ -2,7 +2,7 @@ package br.com.packcontrol.controller;
 
 import br.com.packcontrol.controller.dto.request.doorman.DoormanRequestDTO;
 import br.com.packcontrol.controller.dto.request.doorman.DoormanUpdateDTO;
-import br.com.packcontrol.controller.dto.response.DoormanResponseDTO;
+import br.com.packcontrol.controller.dto.response.doorman.DoormanResponseDTO;
 import br.com.packcontrol.service.DoormanService;
 import jakarta.validation.Valid;
 import org.springframework.http.ResponseEntity;

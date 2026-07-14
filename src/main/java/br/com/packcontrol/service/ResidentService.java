@@ -2,7 +2,7 @@ package br.com.packcontrol.service;
 
 import br.com.packcontrol.controller.dto.request.resident.ResidentRequestDTO;
 import br.com.packcontrol.controller.dto.request.resident.ResidentUpdateDTO;
-import br.com.packcontrol.controller.dto.response.ResidentResponseDTO;
+import br.com.packcontrol.controller.dto.response.resident.ResidentResponseDTO;
 import br.com.packcontrol.exception.ResidentNotFoundException;
 import br.com.packcontrol.mapper.ResidentMapper;
 import br.com.packcontrol.model.Resident;

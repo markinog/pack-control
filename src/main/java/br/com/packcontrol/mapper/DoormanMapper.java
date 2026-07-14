@@ -2,7 +2,7 @@ package br.com.packcontrol.mapper;
 
 import br.com.packcontrol.controller.dto.request.doorman.DoormanRequestDTO;
 import br.com.packcontrol.controller.dto.request.doorman.DoormanUpdateDTO;
-import br.com.packcontrol.controller.dto.response.DoormanResponseDTO;
+import br.com.packcontrol.controller.dto.response.doorman.DoormanResponseDTO;
 import br.com.packcontrol.model.Doorman;
 import br.com.packcontrol.model.enums.DoormanShift;
 import org.springframework.stereotype.Component;

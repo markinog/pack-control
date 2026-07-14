@@ -1,4 +1,4 @@
-package br.com.packcontrol.controller.dto.response;
+package br.com.packcontrol.controller.dto.response.packages;
 
 import br.com.packcontrol.model.enums.PackageSize;
 

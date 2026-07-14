@@ -1,10 +1,10 @@
 package br.com.packcontrol.mapper;
 
 import br.com.packcontrol.controller.dto.request.packages.PackageRequestDTO;
-import br.com.packcontrol.controller.dto.response.PackageResponseDTO;
-import br.com.packcontrol.controller.dto.response.PackageResponseDTO.AuthorizedReceiverSummary;
-import br.com.packcontrol.controller.dto.response.PackageResponseDTO.DoormanSummary;
-import br.com.packcontrol.controller.dto.response.PackageResponseDTO.ResidentSummary;
+import br.com.packcontrol.controller.dto.response.packages.PackageResponseDTO;
+import br.com.packcontrol.controller.dto.response.packages.PackageResponseDTO.AuthorizedReceiverSummary;
+import br.com.packcontrol.controller.dto.response.packages.PackageResponseDTO.DoormanSummary;
+import br.com.packcontrol.controller.dto.response.packages.PackageResponseDTO.ResidentSummary;
 import br.com.packcontrol.model.AuthorizedReceiver;
 import br.com.packcontrol.model.Doorman;
 import br.com.packcontrol.model.Resident;

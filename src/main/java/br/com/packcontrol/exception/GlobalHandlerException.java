@@ -14,7 +14,7 @@ public class GlobalHandlerException {
     @ExceptionHandler(Exception.class)
     public ResponseEntity<String> handleGeneralException(Exception e){
         log.error("Erro inesperado: ", e);
-        return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body("Internal server error");
+        return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body("Internal server error: " + e.getMessage());
     }
 
     @ExceptionHandler(ResidentNotFoundException.class)
@@ -40,12 +40,12 @@ public class GlobalHandlerException {
     @ExceptionHandler(NoResourceFoundException.class)
     public ResponseEntity<String> handleNoResourceFound(NoResourceFoundException e) {
         return ResponseEntity.status(HttpStatus.NOT_FOUND)
-                .body("Rota não encontrada: " + e.getMessage());
+                .body(e.getMessage());
     }
 
     @ExceptionHandler(AuthorizedReceiverNotFoundException.class)
     public ResponseEntity<String> handleAuthorizedReceiverNotFound(AuthorizedReceiverNotFoundException e){
         return ResponseEntity.status(HttpStatus.NOT_FOUND)
-                .body("Recebedor autorizado não encontrado: " + e.getMessage());
+                .body(e.getMessage());
     }
 }

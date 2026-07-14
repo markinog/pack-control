@@ -1,4 +1,4 @@
-package br.com.packcontrol.controller.dto.response;
+package br.com.packcontrol.controller.dto.response.doorman;
 
 import br.com.packcontrol.model.enums.DoormanShift;
 

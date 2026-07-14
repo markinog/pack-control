@@ -2,7 +2,7 @@ package br.com.packcontrol.controller;
 
 import br.com.packcontrol.controller.dto.request.resident.ResidentRequestDTO;
 import br.com.packcontrol.controller.dto.request.resident.ResidentUpdateDTO;
-import br.com.packcontrol.controller.dto.response.ResidentResponseDTO;
+import br.com.packcontrol.controller.dto.response.resident.ResidentResponseDTO;
 import br.com.packcontrol.service.ResidentService;
 import jakarta.validation.Valid;
 import org.springframework.http.ResponseEntity;
