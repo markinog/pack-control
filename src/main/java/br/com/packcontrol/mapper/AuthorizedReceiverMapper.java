@@ -2,12 +2,16 @@ package br.com.packcontrol.mapper;
 
 import br.com.packcontrol.controller.dto.request.authorizedReceiver.AuthorizedReceiverRequestDTO;
 import br.com.packcontrol.controller.dto.request.authorizedReceiver.ReceiverAuthorizationRequestDTO;
-import br.com.packcontrol.controller.dto.response.AuthorizedReceiverResponseDTO;
-import br.com.packcontrol.controller.dto.response.ResidentResponseDTO;
+import br.com.packcontrol.controller.dto.response.authorizedReceiver.AuthorizedReceiverResponseDTO;
+import br.com.packcontrol.controller.dto.response.authorizedReceiver.ReceiversByResidentResponseDTO;
+import br.com.packcontrol.controller.dto.response.resident.ResidentReceiversResponseDTO;
+import br.com.packcontrol.controller.dto.response.resident.ResidentResponseDTO;
 import br.com.packcontrol.model.AuthorizedReceiver;
 import br.com.packcontrol.controller.AuthorizedReceiverController;
 import br.com.packcontrol.model.Resident;
 import org.springframework.stereotype.Component;
+
+import java.util.List;
 
 @Component
 public class AuthorizedReceiverMapper {
@@ -17,7 +21,7 @@ public class AuthorizedReceiverMapper {
      * {@link  AuthorizedReceiverController#authorizeReceiver(ReceiverAuthorizationRequestDTO)}
      * */
     public static AuthorizedReceiver createEntity (AuthorizedReceiverRequestDTO dto, Resident resident){
-        if(dto ==  null){
+        if(dto ==  null || resident == null){
             return null;
         }
 
@@ -32,7 +36,6 @@ public class AuthorizedReceiverMapper {
     }
 
     public static AuthorizedReceiverResponseDTO toResponse(AuthorizedReceiver receiver, ResidentResponseDTO resident){
-
         if(receiver == null || resident == null){
             return null;
         }
@@ -43,5 +46,19 @@ public class AuthorizedReceiverMapper {
                 receiver.isAuthorized(),
                 resident
         );
+    }
+
+    public static ResidentReceiversResponseDTO manyReceiversToResponse(ResidentResponseDTO resident, List<AuthorizedReceiver> authorizedReceivers){
+        if(authorizedReceivers.isEmpty()){
+            return null;
+        }
+
+        return new ResidentReceiversResponseDTO(resident, authorizedReceivers
+                .stream()
+                .map(receiver -> new ReceiversByResidentResponseDTO(
+                        receiver.getName(),
+                        receiver.getEmail(),
+                        receiver.isAuthorized()))
+                .toList());
     }
 }

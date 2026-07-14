@@ -2,16 +2,21 @@ package br.com.packcontrol.service;
 
 import br.com.packcontrol.controller.dto.request.authorizedReceiver.AuthorizedReceiverRequestDTO;
 import br.com.packcontrol.controller.dto.request.authorizedReceiver.ReceiverAuthorizationRequestDTO;
-import br.com.packcontrol.controller.dto.response.AuthorizedReceiverResponseDTO;
-import br.com.packcontrol.controller.dto.response.ResidentResponseDTO;
+import br.com.packcontrol.controller.dto.response.authorizedReceiver.AuthorizedReceiverResponseDTO;
+import br.com.packcontrol.controller.dto.response.authorizedReceiver.ReceiversByResidentResponseDTO;
+import br.com.packcontrol.controller.dto.response.resident.ResidentReceiversResponseDTO;
+import br.com.packcontrol.controller.dto.response.resident.ResidentResponseDTO;
 import br.com.packcontrol.exception.AuthorizedReceiverNotFoundException;
 import br.com.packcontrol.exception.ResidentNotFoundException;
 import br.com.packcontrol.mapper.AuthorizedReceiverMapper;
+import br.com.packcontrol.mapper.ResidentMapper;
 import br.com.packcontrol.model.AuthorizedReceiver;
 import br.com.packcontrol.model.Resident;
 import br.com.packcontrol.repository.AuthorizedReceiverRepository;
 import br.com.packcontrol.repository.ResidentRepository;
 import org.springframework.stereotype.Service;
+
+import java.util.List;
 
 @Service
 public class AuthorizedReceiverService {
@@ -47,9 +52,22 @@ public class AuthorizedReceiverService {
     public String updateAuthorization(ReceiverAuthorizationRequestDTO dto){
          int isAuthorized = repository.updateAuthorizedStatus(dto.cpf(), dto.isAuthorized());
          if(isAuthorized == 1){
-             String result = String.format("Recebedor com CPF %s foi autorizado a retirar encomendas para um morador", dto.cpf() );
-             return result;
+             return  String.format("Recebedor com CPF %s foi autorizado a retirar encomendas para um morador", dto.cpf() );
          }
          return "Erro ao autorizar retirada";
+    }
+
+    public String revokeAuthorization(ReceiverAuthorizationRequestDTO dto){
+         repository.updateAuthorizedStatus(dto.cpf(), false);
+        return String.format("Recebedor com CPF %s teve sua autorização de retirar encomendas revogada pelo morador", dto.cpf() );
+    }
+
+    public ResidentReceiversResponseDTO listReceiversByResident(String cpf){
+        Resident resident = residentRepository.findByCpf(cpf)
+                .orElseThrow(() -> new AuthorizedReceiverNotFoundException("Recebedor com CPF " + cpf + " não foi encontrado"));
+
+        List<AuthorizedReceiver> authorizedReceivers = repository.findAllByResidentId(resident.getId());
+
+        return AuthorizedReceiverMapper.manyReceiversToResponse(ResidentMapper.toResponse(resident), authorizedReceivers );
     }
 }

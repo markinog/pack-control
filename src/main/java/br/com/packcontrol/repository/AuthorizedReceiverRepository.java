@@ -8,6 +8,7 @@ import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;
 import org.springframework.stereotype.Repository;
 
+import java.util.List;
 import java.util.Optional;
 
 @Repository
@@ -19,5 +20,6 @@ public interface AuthorizedReceiverRepository extends JpaRepository<AuthorizedRe
     int updateAuthorizedStatus(@Param("cpf") String cpf, @Param("authorized") boolean authorized);
 
     Optional<AuthorizedReceiver> findByCpf(String cpf);
+    List<AuthorizedReceiver> findAllByResidentId(Long residentId);
 
 }
