@@ -38,9 +38,6 @@ public class Package {
     @JoinColumn(name = "id_morador_destinatario", nullable = false)
     private Resident destinationResident;
 
-
-    //TODO avaliar trocar id_morador para algo mais genérico como recebedor_cpf
-    //e implementar lógica que exiba o pickedBy e o CPF
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "id_morador_retirada")
     private Resident pickupResident;
@@ -136,5 +133,13 @@ public class Package {
 
     public void setReceiveTime(LocalDateTime receiveTime) {
         this.receiveTime = receiveTime;
+    }
+
+    public PickedBy getPickedBy() {
+        return pickedBy;
+    }
+
+    public void setPickedBy(PickedBy pickedBy) {
+        this.pickedBy = pickedBy;
     }
 }
